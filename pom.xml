@@ -59,6 +59,14 @@
 			<version>${matsim.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math</artifactId>
+			<version>2.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
 
 		<!--dependencies from here to where stated below are added as a service; they can be removed if you don't need them-->
 	
@@ -67,9 +75,10 @@
 			<artifactId>otfvis</artifactId>
 			<version>${matsim.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.matsim.contrib</groupId>
-			<artifactId>roadpricing</artifactId>
+			<artifactId>signals</artifactId>
 			<version>${matsim.version}</version>
 		</dependency>
 		<!--Dependencies from where stated above to here are added as a service; they can be removed if you don't need them-->
