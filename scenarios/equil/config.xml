@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v1.dtd">
+
+<config>
+
+	<module name="network">
+		<param name="inputNetworkFile" value="network.xml" />
+	</module>
+	
+	<module name="plans">
+		<param name="inputPlansFile" value="plans.xml" />
+	</module>
+
+	<module name="signalsystems">
+		<param name="useSignalsystems" value="true" />
+		<param name="signalsystems" value="signal_systems.xml" />
+		<param name="signalcontrol" value="signal_control.xml" />
+		<param name="signalgroups" value="signal_groups.xml" />
+	</module>
+  
+	<module name="controler">
+		<param name="outputDirectory" value="../../output/equil/equilTestRun/" />
+		<param name="firstIteration" value="0" />
+		<param name="lastIteration" value="0" />
+		<param name="writeEventsInterval" value="1" />
+		<param name="writePlansInterval" value="1" />
+	</module>
+
+	<module name="planCalcScore">
+		<param name="lateArrival" value="0" />
+		<param name="performing" value="0" />
+		<param name="traveling" value="-60" />
+		<param name="waiting" value="-0" />
+		
+		<param name="activityType_0"            value="h" /> <!-- home -->
+		<param name="activityPriority_0"        value="1" />
+		<param name="activityTypicalDuration_0" value="12:00:00" />
+	</module>
+	
+	<module name="qsim">
+		<param name="startTime" value="17:45:00" />
+		<param name="stuckTime" value="10000.0" />
+	</module>
+</config>
