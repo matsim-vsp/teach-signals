@@ -19,7 +19,6 @@
  * *********************************************************************** */
 package telematics;
 
-import org.apache.commons.math.stat.StatUtils;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.events.*;
 import org.matsim.api.core.v01.events.handler.*;
@@ -154,17 +153,17 @@ public class RouteTTObserver implements PersonDepartureEventHandler, PersonArriv
 			sumRoute1TTs = 0.0;
 		}
 		else {
-			sumRoute1TTs = StatUtils.sum(toArray(route1TTs));
+			sumRoute1TTs = Arrays.stream(toArray(route1TTs)).sum();
 		}
 		if (route2TTs.isEmpty()){
 			sumRoute2TTs = 0.0;
 		}
 		else {
-			sumRoute2TTs = StatUtils.sum(toArray(route2TTs));
+			sumRoute2TTs = Arrays.stream(toArray(route2TTs)).sum();
 		}
 
-		avr_route1TTs = StatUtils.mean(toArray(route1TTs));
-		avr_route2TTs = StatUtils.mean(toArray(route2TTs));
+		avr_route1TTs = Arrays.stream(toArray(route1TTs)).average().orElse(-1);
+		avr_route2TTs = Arrays.stream(toArray(route2TTs)).average().orElse(-1);
 
 		if (Double.isNaN(avr_route1TTs)) {
             avr_route1TTs = getFreespeedTravelTime(event.getServices().getScenario().getNetwork().getLinks().get(Id.create("2", Link.class)));
